@@ -1,0 +1,13 @@
+{
+    "name": "simpleNode",
+    "main": "app.js",
+    "version": "0.0.1",
+    "description": "simpleNode",
+    "repository": {
+	    "type": "git",
+	    "url": "https://github.com/simpleNode"
+  },
+    "dependencies": {
+               "express": "~4.9.0"
+                          }
+}
