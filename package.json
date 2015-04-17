@@ -1,11 +1,11 @@
 {
-    "name": "simpleNode",
+    "name": "stopwatchBaseball",
     "main": "app.js",
     "version": "0.0.1",
-    "description": "simpleNode",
+    "description": "stopwatchBaseball",
     "repository": {
 	    "type": "git",
-	    "url": "https://github.com/simpleNode"
+	    "url": "https://github.com/stopwatchBaseball"
   },
     "dependencies": {
                "express": "~4.9.0"

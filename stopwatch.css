@@ -1,0 +1,79 @@
+body{
+  background-color: rgba(0,0,0, 0.35);
+}
+.title {
+    border-radius: 3px;
+    border: 2px solid black;
+    color: rgba(255, 75, 0, 0.7);
+    margin: auto;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 300px;
+
+   }
+
+#scoreboard {
+   width: 100%;
+   border: 1px solid black;
+   border-radius: 3px;
+   margin-bottom: 15px;
+    }
+
+tr, td {
+  outline: 1px solid black;
+   }
+
+.firstRow {
+  width: 100px;
+}
+
+#pitchCount {
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+.pitchCount {
+   width: 100px;
+
+}
+
+.count{
+  width: 50px;
+}
+
+
+h3  {
+    border-radius: 3px;
+    border: 2px solid black;
+    color: rgba(255, 75, 0, 0.7);
+    margin: auto;
+    text-align: center;
+    width: 300px;
+    }
+p {
+    text-align: center;
+}
+  .stopwatch {
+    display: inline-block;
+    background-color: white;
+    border: 1px solid #eee;
+    padding: 5px;
+    margin: 5px;
+  }
+  .stopwatch span {
+    font-weight: bold;
+    display: block;
+  }
+  .stopwatch a {
+    padding-right: 5px;
+    text-decoration: none
+
+    }
+
+#a-time {
+    width: 200px;
+    height: 40px;
+    color: red;
+    outline: 1px solid black;
+
+
+}

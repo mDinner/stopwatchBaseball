@@ -1,9 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test</title>
+<meta charset=utf-8 />
+<title>Stopwatch BB</title>
+<link rel="stylesheet" type="text/css" href="stopwatch.css">
+<script type="text/javascript" src="stopwatch.js"></script>
+<script type="text/javascript" src="sw.js"></script>
 </head>
-<body>
-	<h2>Hello!!</h2>
+    <body>
+        <h2 class="title">Stopwatch Baseball!</h2>
+			<table id="scoreboard">
+			    <tr>
+			        <td class="firstRow">Inning</td>
+			    	<td>1</td>
+			    	<td>2</td>
+			    	<td>3</td>
+			    	<td>4</td>
+			    	<td>5</td>
+			    	<td>6</td>
+			    	<td>7</td>
+			    	<td>8</td>
+			    	<td>9</td>
+			    	<td>R</td>
+			    	<td>H</td>
+			    	<td>E</td>
+			    </tr>
+			    <tr>
+                    <td class="firstRow">Visitors</td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    </tr>
+
+			    <tr>
+                    <td class="firstRow">Home</td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+			    	<td class="inn"></td>
+    			</tr>
+			</table>
+            <table id="pitchCount">
+            	<tr>
+            	    <td class="pitchCount" id="outs">Outs</td>
+            	    <td class="count">1</td>
+            	    <td class="count">2</td>
+            	    <td class="count">3</td>
+            	    <td class="count"></td>
+            	</tr>
+        	    
+        	    <tr>
+            	    <td class="pitchCount" id="Strikes">Strikes</td>
+            	    <td class="count">1</td>
+            	    <td class="count">2</td>
+            	    <td class="count">3</td>
+            	    <td class="count"></td>
+        	    </tr>
+  
+  				<tr>
+  	          	    <td class="pitchCount" id="Balls">Balls</td>
+            	    <td class="count">1</td>
+            	    <td class="count">2</td>
+            	    <td class="count">3</td>
+            	    <td class="count">4</td>  	          	    
+            	</tr>
+            	
+            	<tr> 
+            	    <td class="innCount" id="inn">Inn</td>
+            	    <td class="count">00</td>
+            	</tr>    
+
+            </table>
+		    	<p>click <code>start</code> start your stopwatch</p>
+  
+		<div class="basic stopwatch">
+			<button type="button" onclick="myStart()">Start!</button>
+			
+			<button type="button" onclick="myStop()">Stop!</button>
+		</div>
+			
+		<p id="a-time"> 
+			<script type="text/javascript">
+			function myFunction() {
+				var a = 12.35689;
+				var b = 35.214982658234;
+				var c = Math.round (a * b);
+				document.getElementById("a-time").innerHTML = c;
+			} 
+			myFunction();
+			</script>
+		</p>
+
+    <button type="button" onclick="myFunction()">This Won't Work</button>
+
+	<hr>
+	<h3>Batter Up!</h3>
+
+<div class="stopwatch" id="a-timer"></div>
+  
+<div class="stopwatch" id="b-timer"></div>  
 </body>
-</html></head>
+</html>
