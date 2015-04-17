@@ -4,8 +4,11 @@
 <meta charset=utf-8 />
 <title>Stopwatch BB</title>
 <link rel="stylesheet" type="text/css" href="stopwatch.css">
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="stopwatch.js"></script>
 <script type="text/javascript" src="sw.js"></script>
+
+
 </head>
     <body>
         <h2 class="title">Stopwatch Baseball!</h2>
@@ -89,21 +92,10 @@
 		    	<p>click <code>start</code> start your stopwatch</p>
   
 		<div class="basic stopwatch">
-			<button type="button" onclick="myStart()">Start!</button>
-			
-			<button type="button" onclick="myStop()">Stop!</button>
+			<button id="timeBtn" type="button">Start!</button>
 		</div>
 			
 		<p id="a-time"> 
-			<script type="text/javascript">
-			function myFunction() {
-				var a = 12.35689;
-				var b = 35.214982658234;
-				var c = Math.round (a * b);
-				document.getElementById("a-time").innerHTML = c;
-			} 
-			myFunction();
-			</script>
 		</p>
 
     <button type="button" onclick="myFunction()">This Won't Work</button>

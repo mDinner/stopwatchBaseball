@@ -1,6 +1,6 @@
 var myScript = function() {
 var s = new Date();
-var seconds = s.getSeconds()*31536000;
+var seconds = s.getSeconds()*315;
 console.log(seconds);
 var numyears = Math.floor(seconds/31536000);
 console.log(numyears);
