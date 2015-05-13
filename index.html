@@ -3,6 +3,8 @@
 <head>
 <meta charset=utf-8 />
 <title>Stopwatch BB</title>
+<link rel ="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" type="text/css" href="Scoreboard.css">
 <link rel="stylesheet" type="text/css" href="stopwatch.css">
 <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="stopwatch.js"></script>
@@ -29,77 +31,72 @@
 			    	<td>E</td>
 			    </tr>
 			    <tr>
-                    <td class="firstRow">Visitors</td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
+                    <td id="away">Visitors</td>
+			    	<td class="vis_inn_1"></td>
+			    	<td class="vis_inn_2"></td>
+			    	<td class="vis_inn_3"></td>
+			    	<td class="vis_inn_4"></td>
+			    	<td class="vis_inn_5"></td>
+			    	<td class="vis_inn_6"></td>
+			    	<td class="vis_inn_7"></td>
+			    	<td class="vis_inn_8"></td>
+			    	<td class="vis_inn_9"></td>
+			    	<td class="vis_R"></td>
+			    	<td class="vis_H"></td>
+			    	<td class="vis_E"></td>
 			    </tr>
 
 			    <tr>
-                    <td class="firstRow">Home</td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
-			    	<td class="inn"></td>
+                    <td id="home">Home</td>
+			    	<td class="home_inn_1"></td>
+			    	<td class="home_inn_2"></td>
+			    	<td class="home_inn 3"></td>
+			    	<td class="home_inn 4"></td>
+			    	<td class="home_inn 5"></td>
+			    	<td class="home_inn 6"></td>
+			    	<td class="home_inn 7"></td>
+			    	<td class="home_inn 8"></td>
+			    	<td class="home_inn 9"></td>
+			    	<td class="home_R"></td>
+			    	<td class="home_H"></td>
+			    	<td class="home_E"></td>
     			</tr>
 			</table>
             <table id="pitchCount">
             	<tr>
             	    <td class="pitchCount" id="outs">Outs</td>
-            	    <td class="count">1</td>
-            	    <td class="count">2</td>
-            	    <td class="count">3</td>
-            	    <td class="count"></td>
+            	    <td class="out_count">0</td>
             	</tr>
         	    
-        	    <tr>
-            	    <td class="pitchCount" id="Strikes">Strikes</td>
-            	    <td class="count">1</td>
-            	    <td class="count">2</td>
-            	    <td class="count">3</td>
-            	    <td class="count"></td>
+        	    <tr id="Strikes">
+            	    <td class="pitchCount">Strikes</td>
+            	    <td class="strike_count">0</td>
         	    </tr>
-  
-  				<tr>
-  	          	    <td class="pitchCount" id="Balls">Balls</td>
-            	    <td class="count">1</td>
-            	    <td class="count">2</td>
-            	    <td class="count">3</td>
-            	    <td class="count">4</td>  	          	    
-            	</tr>
             	
             	<tr> 
             	    <td class="innCount" id="inn">Inn</td>
-            	    <td class="count">00</td>
-            	</tr>    
+            	    <td class="inn_count">01</td>
+            	</tr> 
+            	<tr>
+            		<td class="at_bat">At Bat:</td>
+            		<td class="ab">Visitors</td>
+            	</tr>   
 
             </table>
-		    	<p>click <code>start</code> start your stopwatch</p>
-  
-		<div class="basic stopwatch">
-			<button id="timeBtn" type="button">Start!</button>
-		</div>
-			
-		<p id="a-time"> 
-		</p>
 
-    <button type="button" onclick="myFunction()">This Won't Work</button>
-
+<div class="container bases">
+    <div id="base" class="second_base"></div>
+    <div id="base" class="first_base"></div>
+    <p id="a-time"> </p>
+	<div class="basic_stopwatch">
+	   	
+	<button id="timeBtn" type="button">Start!</button>
+	</div>
+	
+    	
+    <div id="base" class="home_plate"></div>
+    <div id="base" class="third_base"></div>
+</div>
 	<hr>
 	<h3>Batter Up!</h3>
 

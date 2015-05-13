@@ -1,0 +1,46 @@
+
+#scoreboard {
+   border: 1px solid black;
+   border-radius: 3px;
+   margin-bottom: 15px;
+   width: 100%;
+}
+
+#pitchCount {
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.count{
+  width: 50px;
+}
+
+.firstRow {
+  width: 100px;
+}
+
+.pitchCount {
+   width: 100px;
+
+}
+
+#away{
+    background-color: white;
+}
+#home {
+    background-color: white;
+}
+
+.title {
+	border: 2px solid black;
+	border-radius: 3px;
+    color: rgba(245, 163, 6, 1);
+    margin: 0.5%;
+    margin-left: 37%;
+    text-align: center;
+    width: 300px;
+    font-size: xx-large;
+}
+
+
+

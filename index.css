@@ -1,0 +1,25 @@
+body {
+  background-color: rgba(0,150,0, 0.8);
+}
+
+
+tr, td {
+  outline: 1px solid black;
+  background-color: white
+}
+
+
+h3 {
+    border-radius: 3px;
+    color: rgba(255, 75, 0, 0.7);
+    margin: auto;
+    text-align: center;
+    width: 300px;
+}
+
+p {
+    text-align: center;
+    transform: rotate(-45deg);
+}
+
+
