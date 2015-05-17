@@ -23,3 +23,12 @@ p {
 }
 
 
+.btn-wrap {
+  position: absolute;
+  left: 70px;
+  top: 300px;
+}
+
+.btn-wrap:hover {
+  cursor: pointer;
+}

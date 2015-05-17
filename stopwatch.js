@@ -103,40 +103,113 @@ btn.click(function(e){
 			};
 */
 
-			function bases(x){
-				var r1, r2, r3, r4;
-				var b1, b2, b3, b4;
+		function bases(x){
+			var runners = [0,0,0,0];
+			var b1, b2, b3, b4;
 
-				switch(x){
-					case 1:
-						r1 += 1;
-						$('.first_base').css('background-color', 'yellow');  
-						break;
-					case 2:
-						r1 += 2;
-						$('.second_base').css('background-color', 'yellow');
-						break;
-					case 3:
-						r1 += 3;
-						$('.third_base').css('background-color', 'yellow');
-						break;
-					case 4:
-						r1 += 4;
-						$('.first_base').css('background-color', 'yellow');
-						$('.second_base').css('background-color', 'yellow');
-						$('.third_base').css('background-color', 'yellow');
-						$('.home_plate').css('background-color', 'yellow');
-						break;
-					default:
-						$('#bases').css('background-color', 'white');
+			var score = ab == 'Visitors' ? awayScore : homeScore;
 
-				}
+
+			switch(x){
+				case 1:
+					// advance runner to next base
+					runners[3] = 0; 
+					for(r = 0; r <= 3; r++){
+						runners[r+1] += 1;
+						runners[r] -=1;
+					} 
+					if(runners[3] > 0){
+						score += runners[3];
+					}
+					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
+					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
+					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+						
+					  
+					break;
+				case 2:
+					// clear home
+					runners[3] = 0; 
+					// advance runners
+					for(r = 0; r <= 3; r++){
+						runners[r+2] += 1;
+						runners[r] -= 1;
+					} 
+					// add runners to score
+					// loop through runners on extra bases if any
+					// and add them to score
+					if(runners.length() > 2){
+						for(r = runners.length(); r > 3; r--){
+							score += runners[r];
+							console.log('added ' + runners[r] + ' to score');
+						}
+					}
+					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
+					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
+					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					break;
+				case 3:
+					// clear home
+					runners[3] = 0; 
+					// advance runners
+					for(r = 0; r <= 3; r++){
+						runners[r+3] += 1;
+						runners[r] -= 1;
+					} 
+					// add runners to score
+					// loop through runners on extra bases if any
+					// and add them to score
+					if(runners.length() > 2){
+						for(r = runners.length(); r > 3; r--){
+							score += runners[r];
+							console.log('added ' + runners[r] + ' to score');
+						}
+					}
+					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
+					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
+					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					break;
+				case 4:
+					// clear home
+					runners[3] = 0; 
+					// advance runners
+					for(r = 0; r <= 3; r++){
+						runners[r+4] += 1;
+						runners[r] -= 1;
+					} 
+					// add runners to score
+					// loop through runners on extra bases if any
+					// and add them to score
+					if(runners.length() > 2){
+						for(r = runners.length(); r > 3; r--){
+							score += runners[r];
+							console.log('added ' + runners[r] + ' to score');
+						}
+					}
+					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
+					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
+					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					break;
+				default:
+					$('#bases').css('background-color', 'white');
 
 			}
+
+		}
 
 //Highlighting the inning on the scoreboard			}
 		$('.vis_inn_1').addClass('active')
 		$('.home_inn_1').addClass('active')
+
+			if(ab == 'Home' && outs > 2){
+				change_sides();
+				
+
+				$('.vis_inn_1').parent().next().addClass('active');
+				$('.home_inn_1').parent().next().addClass('active');
+				console.log('next inning'); 
+
+			}
 
 		$('.home_plate').css('background-color', 'white');
 		$('.first_base').css('background-color', 'white');
@@ -170,7 +243,7 @@ btn.click(function(e){
 			// post time from last click
 
 			if(time < 970){
-				result = 'Strike';
+				result = 'strike';
 				add_strike();
 				if(strikes > 2){
 					reset_strikes();
@@ -194,7 +267,7 @@ btn.click(function(e){
 			}
 			else if(time >=980 && time < 990){
 				// double
-				result = 'Double';
+				result = 'double';
 				add_strike();
 				$('.second_base').addClass('active');
 				bases(2);
