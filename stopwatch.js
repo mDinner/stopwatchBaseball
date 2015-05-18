@@ -107,88 +107,106 @@ btn.click(function(e){
 			var runners = [0,0,0,0];
 			var b1, b2, b3, b4;
 
+			// set score
 			var score = ab == 'Visitors' ? awayScore : homeScore;
 
-
+			// runner logic - 1 for singles, 2 doubles, so on
 			switch(x){
 				case 1:
 					// advance runner to next base
-					runners[3] = 0; 
-					for(r = 0; r <= 3; r++){
-						runners[r+1] += 1;
-						runners[r] -=1;
-					} 
-					if(runners[3] > 0){
-						score += runners[3];
+					alert('single! score: ' + score);
+	
+					for(r = 3; r >= 1; r--){
+						if((r + 1) > 3 && runners[r] == 1){ runners[r] = 0; score += 1; return;	}
+						runners[r + 1] = 1;
+						runners[r] = 0;
+						console.log('r: ' + r + ' added ' + runners[r] + ' to score');
+						alert('runners: ' + runners);
 					}
+
+					runners[1] = 1; runners[0] = 0;
+
+
 					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
-						
+					alert('single! score: ' + score);
 					  
 					break;
 				case 2:
+					alert('double! score: ' + score);
 					// clear home
-					runners[3] = 0; 
-					// advance runners
-					for(r = 0; r <= 3; r++){
-						runners[r+2] += 1;
-						runners[r] -= 1;
-					} 
 					// add runners to score
 					// loop through runners on extra bases if any
 					// and add them to score
-					if(runners.length() > 2){
-						for(r = runners.length(); r > 3; r--){
-							score += runners[r];
-							console.log('added ' + runners[r] + ' to score');
-						}
+					for(r = 3; r >= 1; r--){
+						if((r + 2) > 3 && runners[r] == 1){ runners[r] = 0; score += 1; return;}
+						runners[r + 2] = 1;
+						runners[r] = 0;
+						console.log('added ' + runners[r] + ' to score');
+						alert('runners: ' + runners);
 					}
+
+					runners[2] = 1; runners[1] = 0; runners[0] = 0;					
 					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					alert('double! score: ' + score);
 					break;
 				case 3:
+					alert('triple! score: ' + score);
 					// clear home
-					runners[3] = 0; 
+					//runners[3] = 0; 
 					// advance runners
-					for(r = 0; r <= 3; r++){
+					/*for(r = 0; r <= 3; r++){
 						runners[r+3] += 1;
 						runners[r] -= 1;
 					} 
+					*/
 					// add runners to score
 					// loop through runners on extra bases if any
 					// and add them to score
-					if(runners.length() > 2){
-						for(r = runners.length(); r > 3; r--){
-							score += runners[r];
-							console.log('added ' + runners[r] + ' to score');
-						}
+					for(r = 3; r >= 1; r--){
+						alert('r: ' + r + ' runners[r]: ' + runners[r] );
+						if((r + 2) > 2 && runners[r] == 1){ runners[r] = 0; score += 1; return;}
+						runners[r + 3] = 1;
+						runners[r] = 0;
+						console.log('added ' + runners[r] + ' to score');
+						alert('runners: ' + runners);
 					}
+
+					runners[3] = 1; runners[2] = 0; runners[1] = 0; runners[0] = 0;	
+					
 					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					alert('triple! score: ' + score);
 					break;
 				case 4:
+					alert('DONGER! score: ' + score);
 					// clear home
-					runners[3] = 0; 
 					// advance runners
-					for(r = 0; r <= 3; r++){
-						runners[r+4] += 1;
-						runners[r] -= 1;
+					runners[0] = 1;
+					for(r = 3; r >= 1; r--){
+						if(runners[r] == 1){ runners[r] = 0; score += 1; return;}
+						alert('runners: ' + runners);
+
 					} 
 					// add runners to score
 					// loop through runners on extra bases if any
 					// and add them to score
-					if(runners.length() > 2){
-						for(r = runners.length(); r > 3; r--){
-							score += runners[r];
-							console.log('added ' + runners[r] + ' to score');
-						}
+				/*
+					for(r = 3; r > 3; r--){
+
+						alert('r: ' + r + ' runners[r]: ' + runners[r] );
+						score += runners[r];
+						console.log('added ' + runners[r] + ' to score');
 					}
+					*/
 					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					alert('DONGER! score: ' + score);
 					break;
 				default:
 					$('#bases').css('background-color', 'white');
@@ -242,7 +260,7 @@ btn.click(function(e){
 			// post time #1
 			// post time from last click
 
-			if(time < 970){
+			if(time < 920){
 				result = 'strike';
 				add_strike();
 				if(strikes > 2){
@@ -256,30 +274,34 @@ btn.click(function(e){
 
 				}
 			}
-			else if(time >= 970 && time < 980){
+			else if(time >= 920 && time < 940){
 				// logic for single
 				result = 'single';
 				reset_strikes();
+				alert('hit');
 			    bases(1);
 				$('.first_base').addClass('active');
 
 
 			}
-			else if(time >=980 && time < 990){
+			else if(time >=941 && time < 970){
 				// double
+				alert('hit');
 				result = 'double';
 				add_strike();
 				$('.second_base').addClass('active');
 				bases(2);
 
 			}
-			else if(time >=990 && time < 1000){
+			else if(time >=971 && time < 1000){
 				// triple
+				alert('hit');
 				result = 'triple';
 				bases(3);
 			}
 			else if(time >=1000 && time < 1100){
 				// donger
+				alert('hit');
 				result = 'Home Run!'
 				//adv_runners() * 4;
 				bases(4);
