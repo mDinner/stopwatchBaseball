@@ -1,23 +1,23 @@
 $(document).ready(function(){
 
-var running = false;
-var btn = $('#timeBtn');
-var start;
-var inning = 1;
-var lastAction;
-var homeAway = 'away';
-var strikes = 0;
-var outs = 0;
-var ab = 'Visitors';
-var result = '';
+	var running = false;
+	var btn = $('#timeBtn');
+	var start;
+	var inning = 1;
+	var lastAction;
+	var homeAway = 'away';
+	var strikes = 0;
+	var outs = 0;
+	var ab = 'Visitors';
+	var result = '';
 
-var runner1 = 0; 
-var runner2 = 0;
-var runner3 = 0;
-var runner4 = 0;
+	var runner1 = 0; 
+	var runner2 = 0;
+	var runner3 = 0;
+	var runner4 = 0;
 
-var homeScore = 0;
-var awayScore = 0;
+	var homeScore = 0;
+	var awayScore = 0;
 
 
 btn.click(function(e){
@@ -118,8 +118,7 @@ btn.click(function(e){
 	
 					for(r = 3; r >= 1; r--){
 						if((r + 1) > 3 && runners[r] == 1){ runners[r] = 0; score += 1; return;	}
-						runners[r + 1] = 1;
-						runners[r] = 0;
+						else if((r + 1) <= 3 && runners[r] == 1){ runners[r + 1] = 1; runners[r] = 0; }
 						console.log('r: ' + r + ' added ' + runners[r] + ' to score');
 						alert('runners: ' + runners);
 					}
@@ -131,6 +130,7 @@ btn.click(function(e){
 					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
 					alert('single! score: ' + score);
+					console.log('runners: ' + runners +  ' - score: ' + score);	
 					  
 					break;
 				case 2:
@@ -140,18 +140,29 @@ btn.click(function(e){
 					// loop through runners on extra bases if any
 					// and add them to score
 					for(r = 3; r >= 1; r--){
-						if((r + 2) > 3 && runners[r] == 1){ runners[r] = 0; score += 1; return;}
-						runners[r + 2] = 1;
-						runners[r] = 0;
+						if((r + 2) > 3 && runners[r] == 1){ 
+							runners[r] = 0; 
+							score += 1; 
+							return;
+						}
+						else if((r + 2) <= 3 && runners[r] == 1){ 
+							runners[r + 2] = 1; 
+							runners[r] = 0; 
+						}
+
 						console.log('added ' + runners[r] + ' to score');
 						alert('runners: ' + runners);
 					}
 
+					
+
 					runners[2] = 1; runners[1] = 0; runners[0] = 0;					
+
 					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
 					alert('double! score: ' + score);
+					console.log('runners: ' + runners +  ' - score: ' + score);	
 					break;
 				case 3:
 					alert('triple! score: ' + score);
@@ -168,45 +179,55 @@ btn.click(function(e){
 					// and add them to score
 					for(r = 3; r >= 1; r--){
 						alert('r: ' + r + ' runners[r]: ' + runners[r] );
-						if((r + 2) > 2 && runners[r] == 1){ runners[r] = 0; score += 1; return;}
-						runners[r + 3] = 1;
-						runners[r] = 0;
-						console.log('added ' + runners[r] + ' to score');
-						alert('runners: ' + runners);
+						if((r + 3) > 3 && runners[r] == 1){ 
+							console.log('this section firing?'); 
+							console.log('added ' + runners[r] + ' to score');
+							console.log('runners: ' + runners); 
+							runners[r] = 0; 
+							console.log('runners[r] - should be 0! ' + runners[r]);
+							score += 1; 
+							alert('score increased'); 
+							return;
+						} 
+						
 					}
 
-					runners[3] = 1; runners[2] = 0; runners[1] = 0; runners[0] = 0;	
 					
+					runners[3] = 1; runners[2] = 0; runners[1] = 0; runners[0] = 0;
+					console.log('runners after explicit set: ' + runners)	
+
+
 					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
 					alert('triple! score: ' + score);
+					console.log('runners: ' + runners +  ' - score: ' + score);	
 					break;
 				case 4:
 					alert('DONGER! score: ' + score);
 					// clear home
 					// advance runners
-					runners[0] = 1;
-					for(r = 3; r >= 1; r--){
-						if(runners[r] == 1){ runners[r] = 0; score += 1; return;}
-						alert('runners: ' + runners);
 
+					for(r = 3; r >= 1; r--){
+						if(runners[r] == 1){ 
+							runners[r] = 0; 
+							score += 1; 
+							return;
+						}
+						console.log('base(r): ' + r + ' - runners[r]: ' + runners[r]);
+						alert('runners: ' + runners);
 					} 
+					score += 1;
+
+					
 					// add runners to score
 					// loop through runners on extra bases if any
 					// and add them to score
-				/*
-					for(r = 3; r > 3; r--){
 
-						alert('r: ' + r + ' runners[r]: ' + runners[r] );
-						score += runners[r];
-						console.log('added ' + runners[r] + ' to score');
-					}
-					*/
-					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
-					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
-					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					runners[3] = 0; runners[2] = 0; runners[1] = 0; runners[0] = 0;	
+
 					alert('DONGER! score: ' + score);
+					console.log('runners: ' + runners +  ' - score: ' + score);
 					break;
 				default:
 					$('#bases').css('background-color', 'white');
@@ -235,17 +256,11 @@ btn.click(function(e){
 		$('.third_base').css('background-color', 'white');
 	 
 
-			if(running == false){ 
-
+		if(running == false){ 
 			running = true; 
 
 			// start timer
 			start = new Date().getTime();
-			
-
-
-
-
 
 		}
 		else{ 
@@ -309,11 +324,6 @@ btn.click(function(e){
 					awayScore += 1
 					$('.vis_inn_1').html(awayScore)
 			}
-			else{
-					homeScore += 1
-					$('.home_inn_1').html(homeScore)
-				}
-			}
 			else if(time >= 1100){
 				// out
 				result = 'Out!'
@@ -337,7 +347,7 @@ btn.click(function(e){
 					}
 			}
 			else{
-				consle.log('somethings wrong with the time var!');
+				console.log('somethings wrong with the time var!');
 				console.log('time: ' + time);
 			}
 
@@ -359,53 +369,7 @@ btn.click(function(e){
 
 
 
+		}
+
 	});
-
-
-function UndoLastAction(){
-// write this - keep track of last action
-}
-
-
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*var myStart = function() {
-    document.getElementById("a-time").innerHTML = "start";
-    var startSecond = new Date();
-	var seconds = startSecond.getSeconds();
-	var startMil = startSecond.getMilliseconds()/1000;
-	var startTime = seconds + startMil;
-	console.log(startTime);
-}    
-
-var myStop = function() {
-	var stopSecond = new Date();
-	var ss = stopSecond.getSeconds();
-	var stopMil = stopSecond.getMilliseconds()/1000;
-	var stopTime = ss + stopMil;
-	var end = (stopTime - startTime)/1000;
-	console.log(stopTime);
-	document.getElementById("a-time").innerHTML = end;
-
-	if (end < startTime) {
-		end = (stopTime + 1) - startTime;
-	}	
-
-}
-*/
