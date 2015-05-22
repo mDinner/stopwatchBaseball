@@ -117,18 +117,31 @@ btn.click(function(e){
 					alert('single! score: ' + score);
 	
 					for(r = 3; r >= 1; r--){
-						if((r + 1) > 3 && runners[r] == 1){ runners[r] = 0; score += 1; return;	}
-						else if((r + 1) <= 3 && runners[r] == 1){ runners[r + 1] = 1; runners[r] = 0; }
+						if((r === 3) && runners[r] == 1){ 
+							console.log('r: ' + r + ' runners[r]: ' +  runners[r]);
+							runners[r] = 0;
+							score += 1; 
+							return;	
+						}
+						else if((r <= 2) && runners[r] === 1){ 
+							console.log('r: ' + r + ' runners[r]: ' +  runners[r]);
+							runners[r] = 0; 
+							runners[r + 1] = 1; 
+							return;
+						}
 						console.log('r: ' + r + ' added ' + runners[r] + ' to score');
 						alert('runners: ' + runners);
 					}
 
+					alert('bout to explicitly set runners, runners: ' +  runners );
 					runners[1] = 1; runners[0] = 0;
+					alert('after explicit set, runners: ' +  runners );
 
-
-					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
-					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
-					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					/*
+					if(runners[0] == 1){$('.first_base').css('background-color', 'yellow');}
+					if(runners[1] == 1){$('.second_base').css('background-color', 'yellow');}
+					if(runners[2] == 1){$('.third_base').css('background-color', 'yellow');}
+					*/
 					alert('single! score: ' + score);
 					console.log('runners: ' + runners +  ' - score: ' + score);	
 					  
@@ -140,28 +153,40 @@ btn.click(function(e){
 					// loop through runners on extra bases if any
 					// and add them to score
 					for(r = 3; r >= 1; r--){
-						if((r + 2) > 3 && runners[r] == 1){ 
+						if((r >= 2) && runners[r] === 1){ 
+							console.log('r: ' + r + ' runners[r]: ' +  runners[r]);
+							alert('greater than 3! & equal to 1	');
+							console.log('greater than 3! & equal to 1	');
 							runners[r] = 0; 
 							score += 1; 
+							console.log('added 1 to score');
 							return;
-						}
-						else if((r + 2) <= 3 && runners[r] == 1){ 
+						}else if((r < 2) && runners[r] == 1){ 
+							console.log('r: ' + r + ' runners[r]: ' +  runners[r]);
+							alert('NOT greater than 3! & equal to 1	');
+							console.log('NOT greater than 3! & equal to 1	');
+							console.log("advancing runner, r: " + r);
 							runners[r + 2] = 1; 
-							runners[r] = 0; 
+							runners[r] = 0;
+							return; 
 						}
 
-						console.log('added ' + runners[r] + ' to score');
-						alert('runners: ' + runners);
+						alert('r: ' + r + ' runners: ' + runners);
 					}
 
 					
 
-					runners[2] = 1; runners[1] = 0; runners[0] = 0;					
-
-					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
-					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
-					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					
+					alert('bout to explicitly set runners, runners: ' +  runners );
+					runners[2] = 1; runners[1] = 0; runners[0] = 0;	
+					console.log('runners inside alerts: ' + runners +  ' - score: ' + score);	
+					alert('after explicit set, runners: ' +  runners );			
+					/*
+					if(runners[0] == 1){$('.first_base').css('background-color', 'yellow');}
+					if(runners[1] == 1){$('.second_base').css('background-color', 'yellow');}
+					if(runners[2] == 1){$('.third_base').css('background-color', 'yellow');}
 					alert('double! score: ' + score);
+					*/
 					console.log('runners: ' + runners +  ' - score: ' + score);	
 					break;
 				case 3:
@@ -179,7 +204,10 @@ btn.click(function(e){
 					// and add them to score
 					for(r = 3; r >= 1; r--){
 						alert('r: ' + r + ' runners[r]: ' + runners[r] );
-						if((r + 3) > 3 && runners[r] == 1){ 
+						if((r >= 1) && runners[r] === 1){ 
+							console.log('r: ' + r + ' runners[r]: ' +  runners[r]);
+							alert('greater than 3! & equal to 1	');
+							console.log('greater than 3! & equal to 1	');
 							console.log('this section firing?'); 
 							console.log('added ' + runners[r] + ' to score');
 							console.log('runners: ' + runners); 
@@ -194,13 +222,14 @@ btn.click(function(e){
 
 					
 					runners[3] = 1; runners[2] = 0; runners[1] = 0; runners[0] = 0;
-					console.log('runners after explicit set: ' + runners)	
+					console.log('runners after explicit set: ' + runners);	
+/*
 
-
-					if(runners[0] = 1){$('.first_base').css('background-color', 'yellow');}
-					if(runners[1] = 1){$('.second_base').css('background-color', 'yellow');}
-					if(runners[2] = 1){$('.third_base').css('background-color', 'yellow');}
+					if(runners[0] == 1){$('.first_base').css('background-color', 'yellow');}
+					if(runners[1] == 1){$('.second_base').css('background-color', 'yellow');}
+					if(runners[2] == 1){$('.third_base').css('background-color', 'yellow');}
 					alert('triple! score: ' + score);
+					*/
 					console.log('runners: ' + runners +  ' - score: ' + score);	
 					break;
 				case 4:
