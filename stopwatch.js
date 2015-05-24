@@ -64,12 +64,14 @@ btn.click(function(e){
 				if(ab == 'Visitors') {
 					ab = 'Home';
 					$('.ab').html(ab);
+					runners = [0,0,0];
 				}
 			    else if (ab == 'Home') {
 					ab = 'Visitors';
 					$('.ab').html(ab);
 					inning += 1;
 					$('.inn_count').html(inning);
+					runners = [0,0,0];	
 				}
 				else{
 					alert('somethings wrong with the team');
