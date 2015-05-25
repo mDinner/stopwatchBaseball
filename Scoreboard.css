@@ -32,15 +32,25 @@
 }
 
 .title {
-	border: 2px solid black;
-	border-radius: 3px;
-    color: rgba(245, 163, 6, 1);
-    margin: 0.5%;
-    margin-left: 37%;
-    text-align: center;
-    width: 300px;
-    font-size: xx-large;
+  border: 3px dashed red;
+  border-radius: 15px;
+  color: rgba(245, 163, 6, 1);
+  margin: 0 auto;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 300px;
+  font-size: 30px;
+  font-family: 'Monda';
+  padding: 3px 20px;
 }
+
+h1, h2, h3, h4, h5, h6, p, div, span, input, tr, td, th, button, input {
+  font-family: 'Doppio One', 'Monda';
+}
+
+td{ text-align: center;
+    padding: 2px;
+ }
 
 
 
