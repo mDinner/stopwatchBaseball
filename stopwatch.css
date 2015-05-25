@@ -9,6 +9,14 @@
   outline: 1px solid black;
   width: 200px;
   display: inline-block;
+  position: absolute;
+  top: 225px;
+  right: 75px;
+}
+
+.base {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 #base.third_base {
@@ -16,10 +24,9 @@
   float: left;
   height: 75px;
   margin: 75px;
-  margin-left: 120px;
-  margin-top: -20px;
-  width: 75px
-  
+  margin-left: 135px;
+  margin-top: 160px;
+  width: 75px;
 }
 
 #base.home_plate {
@@ -27,8 +34,8 @@
   clear: left;
   float: right;
   height: 75px;
-  margin-right: 40px;
-  margin-top: -20px;
+  margin-right: -170px;
+  margin-top: 160px;
   width: 75px;
 }
 
@@ -37,8 +44,8 @@
   float: right;
   height: 75px;
   margin-left: 100px;
-  margin-bottom: 20px;
-  margin-right: 40px;
+  margin-bottom: 15px;
+  margin-right: 30px;
   width: 75px;
   margin-top: 140px;
 }
@@ -63,9 +70,8 @@
   background-color: lightgray;
   border: 1px solid royalblue;
   border-radius: 10px;
-  font-size: medium;
+  font-size: 40px;
   font-weight: 800;
-  margin-left: 342px;
   margin-top: 0px;
   transform: rotate(-45deg);
   padding: 8px 20px;
@@ -86,6 +92,15 @@
   font-weight: bold;
 }
 
+p#a-time {
+  transform: rotate(0deg);
+}
 
+.basic_stopwatch {
+  transform: rotate(45deg);
+  position: absolute;
+  right: 100px;
+  top: 425px;
+}
 
 

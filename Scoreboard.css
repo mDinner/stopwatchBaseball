@@ -34,7 +34,7 @@
 .title {
   border: 3px dashed red;
   border-radius: 15px;
-  color: rgba(245, 163, 6, 1);
+  color: rgba(223, 231, 15, 1);
   margin: 0 auto;
   margin-bottom: 15px;
   text-align: center;
@@ -52,5 +52,7 @@ td{ text-align: center;
     padding: 2px;
  }
 
-
+.spacer {
+  margin-top: 100px;
+}
 
