@@ -20,12 +20,15 @@ $(document).ready(function(){
 	var homeScore = 0;
 	var awayScore = 0;
 
+	var currentInningRuns = 0;
+
 
 
 btn.click(function(e){
 		e.preventDefault();
 		e.stopPropagation();
 		
+		console.log('ab: ' + ab);
 //reset the outs strikes and count function 
 			function reset_outs(){
 				outs = 0;
@@ -65,37 +68,55 @@ btn.click(function(e){
 					ab = 'Home';
 					$('.ab').html(ab);
 					runners = [0,0,0];
+					currentInningRuns = 0;
 				}
 			    else if (ab == 'Home') {
 					ab = 'Visitors';
 					$('.ab').html(ab);
 					inning += 1;
 					$('.inn_count').html(inning);
-					runners = [0,0,0];	
+					runners = [0,0,0];
+					currentInningRuns = 0;
 				}
 				else{
-					alert('somethings wrong with the team');
 				}
 			}
 			 
 			function update_score(){
-				var vis_class = '.vis_inn_' + inning;
-				var home_class = '.home_inn_' + inning;
+				/*
 				if(ab == 'Visitors'){
-					$(vis_class).html(awayScore);
+					
+					
+					console.log('homeScore: ' + homeScore + ' awayScore: ' +  awayScore );
+					console.log('currentInningRuns: ' + currentInningRuns);
 				}
 				else if(ab == 'Home'){
-					$(home_class).html(homeScore);
+					
+					console.log('homeScore: ' + homeScore + ' awayScore: ' +  awayScore );
+					console.log('currentInningRuns: ' + currentInningRuns);
 				}
-				else{alert('team is not home or away!!')};
+				*/
 			}
 
 			function add_run(){
+				var vis_class = '.vis_inn_' + inning;
+				var home_class = '.home_inn_' + inning;
+				console.log('add run called;')
 				if(ab == 'Visitors'){
+					console.log('added run to awayScore');
+					currentInningRuns += 1;
 					awayScore += 1;
+					$(vis_class).html(currentInningRuns);
+					$('.vis_R').html(awayScore);
+					console.log('currentInningRuns: ' + currentInningRuns);
 				}
 				else if(ab == 'Home'){
+					console.log('added run to homeScore');
+					currentInningRuns += 1;
 					homeScore += 1;
+					$(home_class).html(currentInningRuns);
+					$('.home_R').html(homeScore);
+					console.log('currentInningRuns: ' + currentInningRuns);
 				}
 			}
 
@@ -104,7 +125,7 @@ btn.click(function(e){
 			switch(x){
 				case 1:
 					// advance runner to next base
-					alert('single! score');
+					console.log('single');
 	
 					for(r = 2; r >= 0; r--){
 						if((r === 2) && runners[r] == 1){ 
@@ -117,12 +138,9 @@ btn.click(function(e){
 							runners[r + 1] = 1; 
 						}
 						console.log('r: ' + r + ' added ' + runners[r] + ' to score');
-						alert('runners: ' + runners);
 					}
 
 					runners[0] = 1;
-					alert('after explicit set, runners: ' +  runners );
-
 					
 					if(runners[0] == 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] == 1){$('.second_base').css('background-color', 'yellow');}
@@ -130,8 +148,7 @@ btn.click(function(e){
 										  
 					break;
 				case 2:
-					alert('double!');
-					// clear home
+					console.log('double');
 					// add runners to score
 					for(r = 2; r >= 0; r--){
 						if((r >= 1) && runners[r] === 1){ 
@@ -150,23 +167,18 @@ btn.click(function(e){
 					if(runners[0] == 1){$('.first_base').css('background-color', 'yellow');}
 					if(runners[1] == 1){$('.second_base').css('background-color', 'yellow');}
 					if(runners[2] == 1){$('.third_base').css('background-color', 'yellow');}
-					
-					console.log('runners: ' + runners +  ' - score: ' + score);	
 					break;
 				case 3:
-					alert('triple!');
+					console.log('triple');
 					// add runners to score
 					// loop through runners on extra bases if any
 					// and add them to score
 					for(r = 2; r >= 0; r--){
-						alert('r: ' + r + ' runners[r]: ' + runners[r] );
 						if((r >= 0) && runners[r] === 1){ 
-							alert('greater than 3! & equal to 1	');
 							runners[r] = 0; 
 							console.log('runners[r] - should be 0! ' + runners[r]);
 							add_run();
 							update_score(); 
-							alert('score increased'); 
 						} 
 					}
 
@@ -179,10 +191,10 @@ btn.click(function(e){
 					if(runners[2] == 1){$('.third_base').css('background-color', 'yellow');}
 					break;
 				case 4:
-					alert('DONGER!');
+
 					// clear home
 					// advance runners
-
+					console.log('runners before donger: ' + runners);
 					for(r = 2; r >= 0; r--){
 						if(runners[r] === 1){ 
 							runners[r] = 0; 
@@ -191,7 +203,6 @@ btn.click(function(e){
 							console.log('runner was on ' + r + ' 1 added to score');
 						}
 						console.log('base(r): ' + r + ' - runners[r]: ' + runners[r]);
-						alert('runners: ' + runners);
 					} 
 					add_run();
 					update_score();
@@ -260,13 +271,11 @@ btn.click(function(e){
 				// logic for single
 				result = 'single';
 				reset_strikes();
-				alert('hit');
 			    bases(1);
 				$('.first_base').addClass('active');
 			}
 			else if(time >=941 && time < 970){
 				// double
-				alert('hit');
 				result = 'double';
 				add_strike();
 				$('.second_base').addClass('active');
@@ -274,13 +283,11 @@ btn.click(function(e){
 			}
 			else if(time >=971 && time < 1000){
 				// triple
-				alert('hit');
 				result = 'triple';
 				bases(3);
 			}
 			else if(time >=1000 && time < 1100){
 				// donger
-				alert('hit');
 				result = 'Home Run!'
 				//adv_runners() * 4;
 				bases(4);
