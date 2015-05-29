@@ -22,13 +22,18 @@ $(document).ready(function(){
 
 	var currentInningRuns = 0;
 
-
+	var swinging = false;
+	var time;
 
 btn.click(function(e){
 		e.preventDefault();
 		e.stopPropagation();
+
 		
-		console.log('ab: ' + ab);
+
+
+
+		
 //reset the outs strikes and count function 
 			function reset_outs(){
 				outs = 0;
@@ -194,6 +199,7 @@ btn.click(function(e){
 
 					// clear home
 					// advance runners
+					console.log('DONGER!');
 					console.log('runners before donger: ' + runners);
 					for(r = 2; r >= 0; r--){
 						if(runners[r] === 1){ 
@@ -233,18 +239,40 @@ btn.click(function(e){
 		$('.second_base').css('background-color', 'white');
 		$('.third_base').css('background-color', 'white');
 	 
-
+/*
 		if(running == false){ 
 			running = true; 
 			// start timer
 			start = new Date().getTime();
 
 		}
-		else{ 
-			running = false; 
-			var end = new Date().getTime();
+*/
 
-			var time = end - start;
+
+		if(swinging === false){
+			swinging = true;
+			start = new Date().getTime();
+		}
+		else if(swinging === true){
+			swinging = false;
+			end = new Date().getTime();
+			time = end - start;
+			swing(time);
+		}
+		else{alert('something wrong with swinging variable')}
+
+
+		function swing(time){
+
+			console.log('swing! strikes: ' + strikes + ' outs: ' + outs + ' currentInningRuns:' + currentInningRuns);
+			console.log(' homeScore: ' + homeScore + ' awayScore: ' + awayScore + ' runners: ' + runners);
+			console.log('ab: ' + ab);
+
+
+			running = false; 
+			//var end = new Date().getTime();
+
+			//var time = end - start;
 			console.log("time: " + time);
 			$('inn_count').html(inning);
 			// stop timer
@@ -326,6 +354,13 @@ btn.click(function(e){
 			}
 		
 			homeAway = "away"
+
+
+
+
+
+
+
 		}
 
 	$('#a-time').html((time)/1000 + ' ' + result); 
