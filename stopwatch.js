@@ -377,7 +377,9 @@ btn.click(function(e){
 
 		}
 
-	$('#a-time').html((time)/1000 + ' ' + result); 
+		var fixed_result = (time/1000).toFixed(2);
+
+	$('#a-time').html(fixed_result + ' ' + result); 
 						
 
 
